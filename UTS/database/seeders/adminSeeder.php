@@ -52,7 +52,7 @@ class adminSeeder extends Seeder
         $admin = new admin;
         $admin->userid = "0308122005";
         $admin->nama = "Dennis";
-        $admin->password = "BladeTzy";
+        $admin->password = "Blazy";
         $admin->namadepartemen = "Information Technology";
         $admin->email = "denis@gmail.com";
         $admin->noHP = "08145645622";
