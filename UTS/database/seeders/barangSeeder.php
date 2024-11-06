@@ -14,7 +14,7 @@ class barangSeeder extends Seeder
     public function run(): void
     {
         DB::table('barangs')->insert([
-            'idbarang' => 'BKTLS',
+            'id' => '1',
             'namabarang' => 'Buku Tulis',
             'satuanbarang' => 'lusin',
             'harga' => '100,000',
@@ -24,7 +24,7 @@ class barangSeeder extends Seeder
             'barangmasuk' => '20',
         ]);
         DB::table('barangs')->insert([
-            'idbarang' => 'PNSLWRN',
+            'id' => '2',
             'namabarang' => 'Pensil Warna',
             'satuanbarang' => 'box',
             'harga' => '300,000',
@@ -34,7 +34,7 @@ class barangSeeder extends Seeder
             'barangmasuk' => '20',
         ]);
         DB::table('barangs')->insert([
-            'idbarang' => 'PLPNHTM',
+            'id' => '3',
             'namabarang' => 'Pulpen Hitam',
             'satuanbarang' => 'bungkus',
             'harga' => '70,000',
@@ -44,7 +44,7 @@ class barangSeeder extends Seeder
             'barangmasuk' => '70',
         ]);
         DB::table('barangs')->insert([
-            'idbarang' => 'STMPL',
+            'id' => '4',
             'namabarang' => 'Stempel',
             'satuanbarang' => 'pieces',
             'harga' => '50,000',
@@ -54,7 +54,7 @@ class barangSeeder extends Seeder
             'barangmasuk' => '40',
         ]);
         DB::table('barangs')->insert([
-            'idbarang' => 'PNSL2B',
+            'id' => '5',
             'namabarang' => 'Pensil 2B',
             'satuanbarang' => 'bungkus',
             'harga' => '70,000',
@@ -64,7 +64,7 @@ class barangSeeder extends Seeder
             'barangmasuk' => '140',
         ]);
         DB::table('barangs')->insert([
-            'idbarang' => 'PNGHPS',
+            'id' => '6',
             'namabarang' => 'Penghapus',
             'satuanbarang' => 'pieces',
             'harga' => '20,000',
@@ -74,7 +74,7 @@ class barangSeeder extends Seeder
             'barangmasuk' => '100',
         ]);
         DB::table('barangs')->insert([
-            'idbarang' => 'PNGRS',
+            'id' => '7',
             'namabarang' => 'Penggaris',
             'satuanbarang' => 'pieces',
             'harga' => '10,000',

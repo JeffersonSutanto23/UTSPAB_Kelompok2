@@ -23,10 +23,6 @@ class VendorResource extends Resource
     {
         return $form
             ->schema([
-            Forms\Components\TextInput::make('idvendor')
-                ->label('Input ID Vendor')
-                ->required()
-                ->maxLength(20),
             Forms\Components\TextInput::make('namavendor')
                 ->label('Masukkan nama vendor')
                 ->required()
@@ -46,7 +42,6 @@ class VendorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('idvendor')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('namavendor')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('telepon')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('alamat')->sortable()->searchable(),

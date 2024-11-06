@@ -14,14 +14,14 @@ class vendorSeeder extends Seeder
     public function run(): void
     {
         $vendor = new vendor;
-        $vendor->idvendor = "VNDR07";
+        $vendor->id = "2";
         $vendor->namavendor = "PT. Indo Berjaya";
         $vendor->telepon = "081366775543";
         $vendor->alamat = "Jl. Gatot No.09, Medan";
         $vendor->save();
 
         $vendor = new vendor;
-        $vendor->idvendor = "VNDR08";
+        $vendor->id = "3";
         $vendor->namavendor = "PT. Maju Jaya";
         $vendor->telepon = "081366775060";
         $vendor->alamat = "Jl. El Gasing No.29, Medan";

@@ -12,21 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->char('idorder', length: 30)->autoIncrement();
-            $table->char('userid', length: 20);
-            $table->char('namadepartemen', length: 50);
-            $table->dateTime('tanggalorder');
+            $table->id();
+            $table->char('nama', 100);
             $table->char('namabarang', length: 100);
             $table->integer('quantityorder');
             $table->char('hargaorder', length: 30);
-            $table->char('statusapproval', length:20);
-            $table->char('ketapproval', length: 200);
-            $table->dateTime('tanggalapproval');
-            $table->char('statusorder', length: 30);
-            $table->char('ketorder', length: 100);
+            $table->char('statusorder', length:20);
+            $table->dateTime('tanggalorder');
             $table->dateTime('tanggalreceiveorder');
-            $table->char('ketreceiveorder', length: 100);
             $table->timestamps();
+            $table->foreign('nama')->references('nama')->on('admins');
             $table->foreign('namabarang')->references('namabarang')->on('barangs');
         });
     }

@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class penerimaanstok extends Model
 {
     use HasFactory;
-    protected $fillable = ['idreceivestok','tanggalreceivestok','idbarang','namavendor','quantityorder','hargaorder',
-    'statusreceivestok','ketreceivestok'];
+    protected $fillable = ['idreceivestok','tanggalreceivestok','namabarang','namavendor','quantityorder','hargaorder',
+    'statusreceivestok'];
 }

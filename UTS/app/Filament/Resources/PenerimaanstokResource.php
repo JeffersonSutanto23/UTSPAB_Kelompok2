@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PenerimaanstokResource\Pages;
 use App\Filament\Resources\PenerimaanstokResource\RelationManagers;
 use App\Models\Penerimaanstok;
+use App\Models\Barang;
+use App\Models\Vendor;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -23,10 +25,6 @@ class PenerimaanstokResource extends Resource
     {
         return $form
             ->schema([
-            Forms\Components\TextInput::make('idreceivestok')
-                ->label('Input ID Penerimaan Stok')
-                ->required()
-                ->maxLength(30),
             Forms\Components\DateTimePicker::make('tanggalreceivestok')
                 ->label('Tanggal Penerimaan stok')
                 ->required() 
@@ -37,10 +35,10 @@ class PenerimaanstokResource extends Resource
                 ->label('Masukkan nama vendor')
                 ->required()
                 ->maxLength(30),
-            Forms\Components\TextInput::make('idbarang')
-                ->label('Masukkan id barang')
+            Forms\Components\TextInput::make('namabarang')
+                ->label('Masukkan nama barang')
                 ->required()
-                ->maxLength(20),
+                ->maxLength(100),
             Forms\Components\TextInput::make('quantityorder')
                 ->label('Masukkan quantity barang')
                 ->required()
@@ -53,10 +51,6 @@ class PenerimaanstokResource extends Resource
                 ->label('Status Penerimaan Stok')
                 ->required()
                 ->maxLength(20),
-            Forms\Components\TextInput::make('ketreceivestok')
-                ->label('Keterangan Penerimaan Stok')
-                ->required()
-                ->maxLength(100),  
             ]);
     }
 
@@ -64,14 +58,12 @@ class PenerimaanstokResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('idreceivestok')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('tanggalreceivestok')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('namavendor')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('namabarang')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('quantityorder')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('hargaorder')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('statusreceivestok')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('ketreceivestok')->sortable()->searchable(),
             ])
             ->filters([
                 //

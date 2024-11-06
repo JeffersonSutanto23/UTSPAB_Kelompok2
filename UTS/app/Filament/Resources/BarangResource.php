@@ -23,10 +23,6 @@ class BarangResource extends Resource
     {
         return $form
             ->schema([
-            Forms\Components\TextInput::make('idbarang')
-                ->label('Input ID Barang')
-                ->required()
-                ->maxLength(20),
             Forms\Components\TextInput::make('namabarang')
                 ->label('Masukkan nama barang')
                 ->required()
@@ -38,7 +34,7 @@ class BarangResource extends Resource
             Forms\Components\TextInput::make('harga')
                 ->label('Masukkan harga barang')
                 ->required()
-                ->maxLength(20),
+                ->maxLength(30),
             Forms\Components\Select::make('namakategori')
                 ->options([
                     'Alat Tulis' => 'Alat Tulis',
@@ -67,7 +63,6 @@ class BarangResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('idbarang')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('namabarang')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('satuanbarang')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('harga')->sortable()->searchable(),

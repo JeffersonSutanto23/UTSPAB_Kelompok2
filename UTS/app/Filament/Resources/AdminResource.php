@@ -23,14 +23,10 @@ class AdminResource extends Resource
     {
         return $form
             ->schema([
-            Forms\Components\TextInput::make('userid')
-                ->label('Input User ID')
-                ->required()
-                ->maxLength(20),
             Forms\Components\TextInput::make('nama')
                 ->label('Masukkan nama user')
                 ->required()
-                ->maxLength(30),
+                ->maxLength(100),
             Forms\Components\TextInput::make('password')
                 ->label('Masukkan password')
                 ->required()
@@ -60,7 +56,6 @@ class AdminResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('userid')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('nama')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('password')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('namadepartemen')->sortable()->searchable(),

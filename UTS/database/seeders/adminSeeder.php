@@ -14,7 +14,7 @@ class adminSeeder extends Seeder
     public function run(): void
     {
         $admin = new admin;
-        $admin->userid = "0308122001";
+        $admin->id = "1";
         $admin->nama = "Matt";
         $admin->password = "moskov1lawan3";
         $admin->namadepartemen = "Human Resource";
@@ -23,7 +23,7 @@ class adminSeeder extends Seeder
         $admin->save();
 
         $admin = new admin;
-        $admin->userid = "0308122002";
+        $admin->id = "2";
         $admin->nama = "Budiono Siregar";
         $admin->password = "Kapal Laut";
         $admin->namadepartemen = "Human Resource";
@@ -32,7 +32,7 @@ class adminSeeder extends Seeder
         $admin->save();
 
         $admin = new admin;
-        $admin->userid = "0308122003";
+        $admin->id = "3";
         $admin->nama = "Nino";
         $admin->password = "El Sabar";
         $admin->namadepartemen = "Human Resource";
@@ -41,7 +41,7 @@ class adminSeeder extends Seeder
         $admin->save();
 
         $admin = new admin;
-        $admin->userid = "0308122004";
+        $admin->id = "4";
         $admin->nama = "Verrel Angkasa";
         $admin->password = "VerrelSigma";
         $admin->namadepartemen = "Finance";
@@ -50,7 +50,7 @@ class adminSeeder extends Seeder
         $admin->save();
 
         $admin = new admin;
-        $admin->userid = "0308122005";
+        $admin->id = "5";
         $admin->nama = "Dennis";
         $admin->password = "Blazy";
         $admin->namadepartemen = "Information Technology";

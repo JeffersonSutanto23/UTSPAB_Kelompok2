@@ -16,7 +16,7 @@ class penerimaanstokSeeder extends Seeder
     public function run(): void
     {
         $barang = new barang;
-        $barang->idbarang = "BKKAKT";
+        $barang->id = "8";
         $barang->namabarang = "Buku Akutansi";
         $barang->satuanbarang = "pieces";
         $barang->harga = "Rp.100.000";
@@ -27,21 +27,20 @@ class penerimaanstokSeeder extends Seeder
         $barang->save();
 
         $vendor = new vendor;
-        $vendor->idvendor = "VNDR06";
+        $vendor->id = "1";
         $vendor->namavendor = "Yurino";
         $vendor->telepon = "081366775543";
         $vendor->alamat = "Jl. AE Bren No.99, Medan";
         $vendor->save();
 
         $penerimaanstok = new penerimaanstok;
-        $penerimaanstok->idreceivestok = "RCV06";
+        $penerimaanstok->id = "1";
         $penerimaanstok->tanggalreceivestok = Carbon::now();
         $penerimaanstok->namavendor = "Yurino";
-        $penerimaanstok->idbarang = "BKKAKT";  
+        $penerimaanstok->namabarang = "Buku Akutansi";  
         $penerimaanstok->quantityorder = "10";
         $penerimaanstok->hargaorder = "Rp. 1.000.000";
-        $penerimaanstok->statusreceivestok = "Approved";
-        $penerimaanstok->ketreceivestok = "Barang diterima";
+        $penerimaanstok->statusreceivestok = "Barang sudah diterima";
         $penerimaanstok->save();
     }
 }
