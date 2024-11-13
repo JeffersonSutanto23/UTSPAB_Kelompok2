@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 use App\Models\order;
 use App\Models\admin;
 use App\Models\barang;
-use Carbon\Carbon;
 
 class orderSeeder extends Seeder
 {
@@ -22,8 +21,8 @@ class orderSeeder extends Seeder
         $order->quantityorder = 1;  
         $order->hargaorder = 'Rp.100.000';           
         $order->statusorder= "Dalam Perjalanan";
-        $order->tanggalorder = Carbon::now(); 
-        $order->tanggalreceiveorder = Carbon::now();  
+        $order->tanggalorder = "09 September 2024"; 
+        $order->tanggalreceiveorder = "11 September 2024";  
         $order->save();
     }
 }

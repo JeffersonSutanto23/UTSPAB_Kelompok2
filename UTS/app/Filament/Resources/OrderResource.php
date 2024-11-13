@@ -7,6 +7,9 @@ use App\Filament\Resources\OrderResource\RelationManagers;
 use App\Models\Order;
 use App\Models\Admin;
 use App\Models\Barang;
+use App\Imports\OrderImport; 
+use App\Imports\AdminImport; 
+use App\Imports\BarangImport; 
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,12 +17,20 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\Action;  
+use Maatwebsite\Excel\Facades\Excel; 
+use Filament\Forms\Components\FileUpload; 
+
+use Illuminate\Support\Facades\Storage; 
+use Filament\Notifications\Notification; 
 
 class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Daftar Order'; 
+    protected static ?string $navigationIcon = 'heroicon-o-users'; 
+    protected static ?string $navigationGroup = 'Data Order';
 
     public static function form(Form $form): Form
     {
@@ -45,18 +56,14 @@ class OrderResource extends Resource
                 ->label('Status Order')
                 ->required()
                 ->maxLength(20),
-            Forms\Components\DateTimePicker::make('tanggalorder')
+            Forms\Components\TextInput::make('tanggalorder')
                 ->label('Tanggal Order')
-                ->required() 
-                ->format('Y-m-d') 
-                ->placeholder('Pilih tanggal order') 
-                ->columnSpan(1),
-            Forms\Components\DateTimePicker::make('tanggalreceiveorder')
+                ->required()
+                ->maxLength(100),
+            Forms\Components\TextInput::make('tanggalreceiveorder')
                 ->label('Tanggal Receive Order')
-                ->required() 
-                ->format('Y-m-d') 
-                ->placeholder('Pilih tanggal receive order') 
-                ->columnSpan(1),
+                ->required()
+                ->maxLength(100),
             ]);
     }
 
@@ -77,6 +84,32 @@ class OrderResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+            ])
+            ->headerActions([
+                Action::make('importExcel')
+                    ->label('Import Order Excel')
+                    ->action(function (array $data) {
+                        $filePath = Storage::disk('public')->path($data['file']);
+                        Excel::import(new OrderImport, $filePath);
+                        Notification::make()
+                            ->title('Data berhasil diimpor!')
+                            ->success()
+                            ->send();
+                    })
+                    ->form([
+                        FileUpload::make('file')
+                            ->label('Pilih File Excel')
+                            ->disk('public')
+                            ->directory('imports')
+                            ->acceptedFileTypes([
+                                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                'application/vnd.ms-excel'
+                            ])
+                            ->required(),
+                    ])
+                    ->modalHeading('Import Data Order')
+                    ->modalButton('Import')
+                    ->color('success'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->char('password', 20);
             $table->char('namadepartemen', 50);
             $table->text('email');
-            $table->char('NoHP', 50);
             $table->timestamps();
             $table->unique('nama');
         });

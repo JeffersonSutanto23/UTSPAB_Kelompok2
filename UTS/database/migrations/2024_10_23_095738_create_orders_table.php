@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('quantityorder');
             $table->char('hargaorder', length: 30);
             $table->char('statusorder', length:20);
-            $table->dateTime('tanggalorder');
-            $table->dateTime('tanggalreceiveorder');
+            $table->char('tanggalorder', length : 100);
+            $table->char('tanggalreceiveorder', length: 100);
             $table->timestamps();
             $table->foreign('nama')->references('nama')->on('admins');
             $table->foreign('namabarang')->references('namabarang')->on('barangs');

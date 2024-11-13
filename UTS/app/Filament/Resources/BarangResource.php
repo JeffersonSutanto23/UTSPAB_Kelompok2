@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BarangResource\Pages;
 use App\Filament\Resources\BarangResource\RelationManagers;
 use App\Models\Barang;
+use App\Imports\BarangImport; 
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,12 +13,20 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\Action;  
+use Maatwebsite\Excel\Facades\Excel; 
+use Filament\Forms\Components\FileUpload; 
+
+use Illuminate\Support\Facades\Storage; 
+use Filament\Notifications\Notification; 
 
 class BarangResource extends Resource
 {
     protected static ?string $model = Barang::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Daftar Barang'; 
+    protected static ?string $navigationIcon = 'heroicon-o-users'; 
+    protected static ?string $navigationGroup = 'Data Barang';
 
     public static function form(Form $form): Form
     {
@@ -76,6 +85,32 @@ class BarangResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+            ])
+            ->headerActions([
+                Action::make('importExcel')
+                    ->label('Import Barang Excel')
+                    ->action(function (array $data) {
+                        $filePath = Storage::disk('public')->path($data['file']);
+                        Excel::import(new BarangImport, $filePath);
+                        Notification::make()
+                            ->title('Data berhasil diimpor!')
+                            ->success()
+                            ->send();
+                    })
+                    ->form([
+                        FileUpload::make('file')
+                            ->label('Pilih File Excel')
+                            ->disk('public')
+                            ->directory('imports')
+                            ->acceptedFileTypes([
+                                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                'application/vnd.ms-excel'
+                            ])
+                            ->required(),
+                    ])
+                    ->modalHeading('Import Data Barang')
+                    ->modalButton('Import')
+                    ->color('success'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

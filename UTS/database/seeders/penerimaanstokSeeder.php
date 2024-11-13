@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 use App\Models\penerimaanstok;
 use App\Models\barang;
 use App\Models\vendor;
-use Carbon\Carbon;
 
 class penerimaanstokSeeder extends Seeder
 {
@@ -35,7 +34,7 @@ class penerimaanstokSeeder extends Seeder
 
         $penerimaanstok = new penerimaanstok;
         $penerimaanstok->id = "1";
-        $penerimaanstok->tanggalreceivestok = Carbon::now();
+        $penerimaanstok->tanggalreceivestok = "11 Oktober 2024";
         $penerimaanstok->namavendor = "Yurino";
         $penerimaanstok->namabarang = "Buku Akutansi";  
         $penerimaanstok->quantityorder = "10";

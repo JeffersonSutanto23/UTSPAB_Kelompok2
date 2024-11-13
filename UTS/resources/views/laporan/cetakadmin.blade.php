@@ -30,7 +30,7 @@
                 <th>Nama Admin</th> 
                 <th>Password</th>
                 <th>Nama Departemen</th>
-                <th>Email</th>  
+                <th>Email</th> 
             </tr> 
         </thead> 
         <tbody> 

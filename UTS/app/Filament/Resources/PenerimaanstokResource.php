@@ -7,6 +7,9 @@ use App\Filament\Resources\PenerimaanstokResource\RelationManagers;
 use App\Models\Penerimaanstok;
 use App\Models\Barang;
 use App\Models\Vendor;
+use App\Imports\PenerimaanstokImport; 
+use App\Imports\BarangImport; 
+use App\Imports\VendorImport; 
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,23 +17,29 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\Action;  
+use Maatwebsite\Excel\Facades\Excel; 
+use Filament\Forms\Components\FileUpload; 
+
+use Illuminate\Support\Facades\Storage; 
+use Filament\Notifications\Notification; 
 
 class PenerimaanstokResource extends Resource
 {
     protected static ?string $model = Penerimaanstok::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Daftar Penerimaan Stok'; 
+    protected static ?string $navigationIcon = 'heroicon-o-users'; 
+    protected static ?string $navigationGroup = 'Data Penerimaan Stok';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-            Forms\Components\DateTimePicker::make('tanggalreceivestok')
-                ->label('Tanggal Penerimaan stok')
-                ->required() 
-                ->format('Y-m-d') 
-                ->placeholder('Pilih tanggal Penerimaan stok') 
-                ->columnSpan(1),
+            Forms\Components\TextInput::make('tanggalreceivestok')
+                ->label('Tanggal Receive Stok')
+                ->required()
+                ->maxLength(100),
             Forms\Components\TextInput::make('namavendor')
                 ->label('Masukkan nama vendor')
                 ->required()
@@ -70,6 +79,32 @@ class PenerimaanstokResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+            ])
+            ->headerActions([
+                Action::make('importExcel')
+                    ->label('Import Penerimaan Stok Excel')
+                    ->action(function (array $data) {
+                        $filePath = Storage::disk('public')->path($data['file']);
+                        Excel::import(new PenerimaanstokImport, $filePath);
+                        Notification::make()
+                            ->title('Data berhasil diimpor!')
+                            ->success()
+                            ->send();
+                    })
+                    ->form([
+                        FileUpload::make('file')
+                            ->label('Pilih File Excel')
+                            ->disk('public')
+                            ->directory('imports')
+                            ->acceptedFileTypes([
+                                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                'application/vnd.ms-excel'
+                            ])
+                            ->required(),
+                    ])
+                    ->modalHeading('Import Data Penerimaan Stok')
+                    ->modalButton('Import')
+                    ->color('success'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

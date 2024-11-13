@@ -19,7 +19,6 @@ class adminSeeder extends Seeder
         $admin->password = "moskov1lawan3";
         $admin->namadepartemen = "Human Resource";
         $admin->email = "matt@gmail.com";
-        $admin->noHP = "08130099782";
         $admin->save();
 
         $admin = new admin;
@@ -28,7 +27,6 @@ class adminSeeder extends Seeder
         $admin->password = "Kapal Laut";
         $admin->namadepartemen = "Human Resource";
         $admin->email = "budi@gmail.com";
-        $admin->noHP = "08136799422";
         $admin->save();
 
         $admin = new admin;
@@ -37,7 +35,6 @@ class adminSeeder extends Seeder
         $admin->password = "El Sabar";
         $admin->namadepartemen = "Human Resource";
         $admin->email = "nino@gmail.com";
-        $admin->noHP = "08136445622";
         $admin->save();
 
         $admin = new admin;
@@ -46,7 +43,6 @@ class adminSeeder extends Seeder
         $admin->password = "VerrelSigma";
         $admin->namadepartemen = "Finance";
         $admin->email = "verrel@gmail.com";
-        $admin->noHP = "08136446702";
         $admin->save();
 
         $admin = new admin;
@@ -55,7 +51,6 @@ class adminSeeder extends Seeder
         $admin->password = "Blazy";
         $admin->namadepartemen = "Information Technology";
         $admin->email = "denis@gmail.com";
-        $admin->noHP = "08145645622";
         $admin->save();
 
    }
