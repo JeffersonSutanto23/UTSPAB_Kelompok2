@@ -17,7 +17,7 @@
 
 <body> 
     <div class="header">
-        <p class="bold">PT. Sumatera Jaya</p>
+        <p class="bold">PT. Indako Trading Coy</p>
         <p class="bold">Laporan Data Penerimaan Stok</p>
         <p><span class="bold">Periode:</span> 2023-2024</p>
         <p><span class="bold">Tanggal Cetak:</span> 6 November 2024</p>
