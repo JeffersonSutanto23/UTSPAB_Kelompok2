@@ -24,9 +24,9 @@ class BarangResource extends Resource
 {
     protected static ?string $model = Barang::class;
 
-    protected static ?string $navigationLabel = 'Daftar Barang'; 
+    protected static ?string $navigationLabel = 'Stok Barang'; 
     protected static ?string $navigationIcon = 'heroicon-o-users'; 
-    protected static ?string $navigationGroup = 'Data Barang';
+    protected static ?string $navigationGroup = 'Data Stok Barang';
 
     public static function form(Form $form): Form
     {
@@ -40,10 +40,6 @@ class BarangResource extends Resource
                 ->label('Masukkan satuan barang')
                 ->required()
                 ->maxLength(15),
-            Forms\Components\TextInput::make('harga')
-                ->label('Masukkan harga barang')
-                ->required()
-                ->maxLength(30),
             Forms\Components\Select::make('namakategori')
                 ->options([
                     'Alat Tulis' => 'Alat Tulis',
@@ -55,10 +51,6 @@ class BarangResource extends Resource
                 ->native(false),
             Forms\Components\TextInput::make('stockawal')
                 ->label('Stock Awal Produk')
-                ->required()
-                ->maxLength(11),
-            Forms\Components\TextInput::make('barangkeluar')
-                ->label('Barang Keluar')
                 ->required()
                 ->maxLength(11),
             Forms\Components\TextInput::make('barangmasuk')
@@ -74,10 +66,8 @@ class BarangResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('namabarang')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('satuanbarang')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('harga')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('namakategori')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('stockawal')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('barangkeluar')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('barangmasuk')->sortable()->searchable(),
             ])
             ->filters([

@@ -52,16 +52,8 @@ class OrderResource extends Resource
                 ->label('Harga Order')
                 ->required()
                 ->maxLength(30),
-            Forms\Components\TextInput::make('statusorder')
-                ->label('Status Order')
-                ->required()
-                ->maxLength(20),
             Forms\Components\TextInput::make('tanggalorder')
                 ->label('Tanggal Order')
-                ->required()
-                ->maxLength(100),
-            Forms\Components\TextInput::make('tanggalreceiveorder')
-                ->label('Tanggal Receive Order')
                 ->required()
                 ->maxLength(100),
             ]);
@@ -75,9 +67,7 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('namabarang')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('quantityorder')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('hargaorder')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('statusorder')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('tanggalorder')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('tanggalreceiveorder')->sortable()->searchable(),
             ])
             ->filters([
                 //

@@ -17,10 +17,8 @@ class OrderImport implements ToModel, WithHeadingRow
         'nama' => $row['nama'], 
         'namabarang' => $row['namabarang'], 
         'quantityorder' => $row['quantityorder'],  
-        'hargaorder' => $row['hargaorder'], 
-        'statusorder' => $row['statusorder'], 
+        'hargaorder' => $row['hargaorder'],  
         'tanggalorder' => $row['tanggalorder'],
-        'tanggalreceiveorder' => $row['tanggalreceiveorder'],
     ]); 
   } 
 } 

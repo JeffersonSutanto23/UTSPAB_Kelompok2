@@ -29,11 +29,9 @@
                 <th>ID Barang</th> 
                 <th>Nama Barang</th> 
                 <th>Satuan Barang</th>
-                <th>Harga</th>
                 <th>Kategori</th> 
                 <th>Stok Awal</th>
-                <th>Barang Masuk</th>
-                <th>Barang Keluar</th> 
+                <th>Barang Masuk</th> 
             </tr> 
         </thead> 
         <tbody> 
@@ -42,11 +40,9 @@
                     <td>{{ $barang->id }}</td> 
                     <td>{{ $barang->namabarang}}</td> 
                     <td>{{ $barang->satuanbarang}}</td>
-                    <td>{{ $barang->harga}}</td>
                     <td>{{ $barang->namakategori}}</td>
                     <td>{{ $barang->stockawal}}</td>
                     <td>{{ $barang->barangmasuk}}</td>
-                    <td>{{ $barang->barangkeluar}}</td>
                 </tr> 
             @endforeach 
         </tbody> 

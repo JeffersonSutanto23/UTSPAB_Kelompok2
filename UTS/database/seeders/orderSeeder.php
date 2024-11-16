@@ -20,9 +20,7 @@ class orderSeeder extends Seeder
         $order->namabarang = "Buku Akutansi";  
         $order->quantityorder = 1;  
         $order->hargaorder = 'Rp.100.000';           
-        $order->statusorder= "Dalam Perjalanan";
-        $order->tanggalorder = "09 September 2024"; 
-        $order->tanggalreceiveorder = "11 September 2024";  
+        $order->tanggalorder = "09 September 2024";   
         $order->save();
     }
 }

@@ -18,10 +18,8 @@ class penerimaanstokSeeder extends Seeder
         $barang->id = "8";
         $barang->namabarang = "Buku Akutansi";
         $barang->satuanbarang = "pieces";
-        $barang->harga = "Rp.100.000";
         $barang->namakategori = "Alat Tulis";
         $barang->stockawal = 120;
-        $barang->barangkeluar = 30;
         $barang->barangmasuk = 10;
         $barang->save();
 
@@ -29,7 +27,7 @@ class penerimaanstokSeeder extends Seeder
         $vendor->id = "1";
         $vendor->namavendor = "Yurino";
         $vendor->telepon = "081366775543";
-        $vendor->alamat = "Jl. AE Bren No.99, Medan";
+        $vendor->alamat = "Jl. Panjaitan No.99, Medan";
         $vendor->save();
 
         $penerimaanstok = new penerimaanstok;
@@ -37,8 +35,8 @@ class penerimaanstokSeeder extends Seeder
         $penerimaanstok->tanggalreceivestok = "11 Oktober 2024";
         $penerimaanstok->namavendor = "Yurino";
         $penerimaanstok->namabarang = "Buku Akutansi";  
-        $penerimaanstok->quantityorder = "10";
-        $penerimaanstok->hargaorder = "Rp. 1.000.000";
+        $penerimaanstok->quantityorder = "1";
+        $penerimaanstok->hargaorder = "Rp. 100.000";
         $penerimaanstok->statusreceivestok = "Barang sudah diterima";
         $penerimaanstok->save();
     }

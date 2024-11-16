@@ -12,12 +12,10 @@ class BarangImport implements ToModel, WithHeadingRow
         return new Barang([ 
         'id' => $row['id'],  
         'namabarang' => $row['namabarang'], 
-        'satuanbarang' => $row['satuanbarang'], 
-        'harga' => $row['harga'],  
-        'namakategori' => $row['namakategori'], 
+        'satuanbarang' => $row['satuanbarang'],   
+        'namakategori' => $row['namakategori'],
         'stockawal' => $row['stockawal'], 
-        'barangmasuk' => $row['barangmasuk'], 
-        'barangkeluar' => $row['barangkeluar'], 
+        'barangmasuk' => $row['barangmasuk'],  
     ]); 
   } 
 } 

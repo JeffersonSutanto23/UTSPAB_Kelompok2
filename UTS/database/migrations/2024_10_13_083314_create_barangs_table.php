@@ -15,10 +15,8 @@ return new class extends Migration
             $table->id();
             $table->char('namabarang', 100);
             $table->char('satuanbarang', 15);
-            $table->char('harga', 30);
             $table->char('namakategori', 30);
             $table->integer('stockawal');
-            $table->integer('barangkeluar');
             $table->integer('barangmasuk');
             $table->timestamps();
             $table->unique('namabarang');

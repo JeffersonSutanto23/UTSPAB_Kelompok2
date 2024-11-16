@@ -16,7 +16,7 @@ return new class extends Migration
             $table->char('tanggalreceivestok', length: 100);
             $table->char('namavendor', length: 30);
             $table->char('namabarang', length: 100);
-            $table->integer('quantityorder');
+            $table->integer('quantityorder');         
             $table->char('hargaorder', length: 30);
             $table->char('statusreceivestok', length: 100);
             $table->timestamps();

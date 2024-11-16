@@ -31,9 +31,7 @@
                 <th>Nama Barang</th>
                 <th>Quantity Order</th>
                 <th>Harga Order</th> 
-                <th>Status Order</th>
                 <th>Tanggal Order</th>
-                <th>Tanggal Receive Order</th>
             </tr> 
         </thead> 
         <tbody> 
@@ -44,9 +42,7 @@
                     <td>{{ $order->namabarang}}</td> 
                     <td>{{ $order->quantityorder}}</td> 
                     <td>{{ $order->hargaorder}}</td> 
-                    <td>{{ $order->statusorder}}</td> 
                     <td>{{ $order->tanggalorder}}</td>
-                    <td>{{ $order->tanggalreceiveorder}}</td> 
                 </tr> 
             @endforeach 
         </tbody> 
