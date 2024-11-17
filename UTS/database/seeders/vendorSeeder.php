@@ -24,7 +24,7 @@ class vendorSeeder extends Seeder
         $vendor->id = "3";
         $vendor->namavendor = "PT. Maju Jaya";
         $vendor->telepon = "081366775060";
-        $vendor->alamat = "Jl. El Gasing No.29, Medan";
+        $vendor->alamat = "Jl. Bambu Runcing No.29, Medan";
         $vendor->save();
     }
 }

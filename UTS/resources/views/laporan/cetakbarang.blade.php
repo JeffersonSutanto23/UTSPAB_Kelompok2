@@ -30,8 +30,9 @@
                 <th>Nama Barang</th> 
                 <th>Satuan Barang</th>
                 <th>Kategori</th> 
-                <th>Stok Awal</th>
-                <th>Barang Masuk</th> 
+                <th>Jumlah Stock</th>
+                <th>Barang Masuk</th>
+                <th>Tahun Masuk</th> 
             </tr> 
         </thead> 
         <tbody> 
@@ -41,8 +42,9 @@
                     <td>{{ $barang->namabarang}}</td> 
                     <td>{{ $barang->satuanbarang}}</td>
                     <td>{{ $barang->namakategori}}</td>
-                    <td>{{ $barang->stockawal}}</td>
+                    <td>{{ $barang->jumlahstock}}</td>
                     <td>{{ $barang->barangmasuk}}</td>
+                    <td>{{ $barang->tahunmasuk}}</td>
                 </tr> 
             @endforeach 
         </tbody> 

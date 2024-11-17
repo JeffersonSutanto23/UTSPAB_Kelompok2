@@ -15,12 +15,13 @@ class penerimaanstokSeeder extends Seeder
     public function run(): void
     {
         $barang = new barang;
-        $barang->id = "8";
+        $barang->id = "7";
         $barang->namabarang = "Buku Akutansi";
         $barang->satuanbarang = "pieces";
         $barang->namakategori = "Alat Tulis";
-        $barang->stockawal = 120;
+        $barang->jumlahstock = 120;
         $barang->barangmasuk = 10;
+        $barang->tahunmasuk = "2023";
         $barang->save();
 
         $vendor = new vendor;

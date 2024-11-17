@@ -49,14 +49,18 @@ class BarangResource extends Resource
                 ])
                 ->searchable()
                 ->native(false),
-            Forms\Components\TextInput::make('stockawal')
-                ->label('Stock Awal Produk')
+            Forms\Components\TextInput::make('jumlahstock')
+                ->label('Jumlah Stock Produk')
                 ->required()
                 ->maxLength(11),
             Forms\Components\TextInput::make('barangmasuk')
-                ->label('barang Masuk')
+                ->label('Barang Masuk')
                 ->required()
                 ->maxLength(11),
+            Forms\Components\TextInput::make('tahunmasuk')
+                ->label('Tahun Masuk')
+                ->required()
+                ->maxLength(4),
             ]);
     }
 
@@ -67,8 +71,9 @@ class BarangResource extends Resource
                 Tables\Columns\TextColumn::make('namabarang')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('satuanbarang')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('namakategori')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('stockawal')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('jumlahstock')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('barangmasuk')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('tahunmasuk')->sortable()->searchable(),
             ])
             ->filters([
                 //

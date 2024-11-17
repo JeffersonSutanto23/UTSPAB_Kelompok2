@@ -14,8 +14,9 @@ class BarangImport implements ToModel, WithHeadingRow
         'namabarang' => $row['namabarang'], 
         'satuanbarang' => $row['satuanbarang'],   
         'namakategori' => $row['namakategori'],
-        'stockawal' => $row['stockawal'], 
-        'barangmasuk' => $row['barangmasuk'],  
+        'jumlahstock' => $row['jumlahstock'], 
+        'barangmasuk' => $row['barangmasuk'],
+        'tahunmasuk' => $row['tahunmasuk'],  
     ]); 
   } 
 } 

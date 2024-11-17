@@ -15,10 +15,10 @@ class adminSeeder extends Seeder
     {
         $admin = new admin;
         $admin->id = "1";
-        $admin->nama = "Matt";
-        $admin->password = "moskov1lawan3";
+        $admin->nama = "Gerald";
+        $admin->password = "ger123";
         $admin->namadepartemen = "Human Resource";
-        $admin->email = "matt@gmail.com";
+        $admin->email = "gerald@gmail.com";
         $admin->save();
 
         $admin = new admin;
@@ -31,10 +31,10 @@ class adminSeeder extends Seeder
 
         $admin = new admin;
         $admin->id = "3";
-        $admin->nama = "Nino";
-        $admin->password = "El Sabar";
+        $admin->nama = "Owen";
+        $admin->password = "owen16";
         $admin->namadepartemen = "Human Resource";
-        $admin->email = "nino@gmail.com";
+        $admin->email = "owen@gmail.com";
         $admin->save();
 
         $admin = new admin;

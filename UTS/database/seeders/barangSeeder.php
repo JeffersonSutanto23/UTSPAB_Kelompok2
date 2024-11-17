@@ -18,56 +18,54 @@ class barangSeeder extends Seeder
             'namabarang' => 'Buku Tulis',
             'satuanbarang' => 'lusin',
             'namakategori' => 'Buku',
-            'stockawal' => '100',
+            'jumlahstock' => '100',
             'barangmasuk' => '20',
+            'tahunmasuk' => '2024',
         ]);
         DB::table('barangs')->insert([
             'id' => '2',
             'namabarang' => 'Pensil Warna',
             'satuanbarang' => 'box',
             'namakategori' => 'Alat Gambar',
-            'stockawal' => '70',
+            'jumlahstock' => '300',
             'barangmasuk' => '20',
+            'tahunmasuk' => '2024',
         ]);
         DB::table('barangs')->insert([
             'id' => '3',
             'namabarang' => 'Pulpen Hitam',
             'satuanbarang' => 'bungkus',
             'namakategori' => 'Alat Tulis',
-            'stockawal' => '300',
+            'jumlahstock' => '240',
             'barangmasuk' => '70',
+            'tahunmasuk' => '2024',
         ]);
         DB::table('barangs')->insert([
             'id' => '4',
-            'namabarang' => 'Stempel',
-            'satuanbarang' => 'pieces',
-            'namakategori' => 'Perangko',
-            'stockawal' => '100',
-            'barangmasuk' => '40',
-        ]);
-        DB::table('barangs')->insert([
-            'id' => '5',
             'namabarang' => 'Pensil 2B',
             'satuanbarang' => 'bungkus',
             'namakategori' => 'Alat Tulis',
-            'stockawal' => '400',
-            'barangmasuk' => '140',
+            'jumlahstock' => '240',
+            'barangmasuk' => '10',
+            'tahunmasuk' => '2023',
         ]);
         DB::table('barangs')->insert([
-            'id' => '6',
+            'id' => '5',
             'namabarang' => 'Penghapus',
             'satuanbarang' => 'pieces',
             'namakategori' => 'Alat Tulis',
-            'stockawal' => '200',
+            'jumlahstock' => '500',
             'barangmasuk' => '100',
+            'tahunmasuk' => '2020',
         ]);
         DB::table('barangs')->insert([
-            'id' => '7',
+            'id' => '6',
             'namabarang' => 'Penggaris',
             'satuanbarang' => 'pieces',
             'namakategori' => 'Alat Tulis',
-            'stockawal' => '360',
+            'jumlahstock' => '200',
             'barangmasuk' => '100',
+            'tahunmasuk' => '2023',
         ]);
     }
 }
