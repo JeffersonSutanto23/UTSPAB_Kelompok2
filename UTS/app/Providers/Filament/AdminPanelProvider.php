@@ -39,6 +39,16 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
+                \App\Filament\Widgets\AdminChart::class,
+                \App\Filament\Widgets\BarangChart::class,
+                \App\Filament\Widgets\OrderChart::class,
+                \App\Filament\Widgets\PenerimaanstokChart::class,
+                \App\Filament\Widgets\VendorChart::class,  
+                \App\Filament\Widgets\AdminStat::class,
+                \App\Filament\Widgets\BarangStat::class,
+                \App\Filament\Widgets\OrderStat::class,
+                \App\Filament\Widgets\PenerimaanstokStat::class,
+                \App\Filament\Widgets\VendorStat::class,
             ])
             ->middleware([
                 EncryptCookies::class,
