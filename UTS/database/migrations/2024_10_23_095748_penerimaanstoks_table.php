@@ -16,11 +16,14 @@ return new class extends Migration
             $table->DateTime('tanggalreceivestok');
             $table->char('namavendor', length: 30);
             $table->char('namabarang', length: 100);
+            $table->DateTime('tanggalorder');
             $table->integer('quantityorder');         
             $table->double('hargaorder');
             $table->char('statusreceivestok', length: 100);
+            $table->char('statusapproval', length: 100);
             $table->timestamps();
             $table->foreign('namabarang')->references('namabarang')->on('barangs');
+            $table->foreign('statusapproval')->references('statusapproval')->on('orders');
             $table->foreign('namavendor')->references('namavendor')->on('vendors');
         });
     }

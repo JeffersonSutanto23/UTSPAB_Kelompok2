@@ -5,6 +5,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\penerimaanstok;
 use App\Models\barang;
+use App\Models\order;
 use App\Models\vendor;
 
 class penerimaanstokSeeder extends Seeder
@@ -35,11 +36,13 @@ class penerimaanstokSeeder extends Seeder
         $penerimaanstok = new penerimaanstok;
         $penerimaanstok->id = "1";
         $penerimaanstok->tanggalreceivestok = "2024-10-11";
-        $penerimaanstok->namavendor = "Yurino";
-        $penerimaanstok->namabarang = "Buku Akuntansi";  
+        $penerimaanstok->namavendor = "PT. Maju Jaya";
+        $penerimaanstok->namabarang = "Penghapus"; 
+        $penerimaanstok->tanggalorder = "2024-09-11"; 
         $penerimaanstok->quantityorder = "1";
-        $penerimaanstok->hargaorder = "100.000";
+        $penerimaanstok->hargaorder = "15000";
         $penerimaanstok->statusreceivestok = "Barang sudah diterima";
+        $penerimaanstok->statusapproval = "Diapprove Manager";
         $penerimaanstok->save();
     }
 }

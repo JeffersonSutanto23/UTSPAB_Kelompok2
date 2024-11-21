@@ -20,6 +20,7 @@ return new class extends Migration
             $table->DateTime('tanggalorder');
             $table->char('statusapproval', length: 100);
             $table->timestamps();
+            $table->unique('statusapproval');
             $table->foreign('nama')->references('nama')->on('admins');
             $table->foreign('namabarang')->references('namabarang')->on('barangs');
         });

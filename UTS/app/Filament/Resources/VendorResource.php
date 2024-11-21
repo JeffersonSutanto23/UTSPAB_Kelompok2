@@ -7,6 +7,7 @@ use App\Filament\Resources\VendorResource\RelationManagers;
 use App\Models\Vendor;
 use App\Models\Barang;
 use App\Imports\VendorImport; 
+use App\Imports\BarangImport;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;

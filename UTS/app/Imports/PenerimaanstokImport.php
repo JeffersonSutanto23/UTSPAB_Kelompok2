@@ -3,7 +3,7 @@ namespace App\Imports;
 
 use App\Models\Penerimaanstok; 
 use App\Models\Vendor; 
-use App\Models\Barang; 
+use App\Models\Order; 
 use Maatwebsite\Excel\Concerns\ToModel; 
 use Maatwebsite\Excel\Concerns\WithHeadingRow; 
 
@@ -18,7 +18,8 @@ class PenerimaanstokImport implements ToModel, WithHeadingRow
         'namavendor' => $row['namavendor'],
         'quantityorder' => $row['quantityorder'],   
         'hargaorder' => $row['hargaorder'], 
-        'statusreceivestok' => $row['statusreceivestok'], 
+        'statusreceivestok' => $row['statusreceivestok'],
+        'statusapproval' => $row['statusapproval'], 
     ]); 
   } 
 } 

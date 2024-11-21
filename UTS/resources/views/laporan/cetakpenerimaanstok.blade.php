@@ -36,7 +36,8 @@
                 <th>Quantity Order</th> 
                 <th>Harga Order</th>
                 <th>Status Receive Stok</th>
-                <th>Satuan Barang</th>
+                <th>Status Approval</th>
+                <th>Tanggal Order</th>
                 <th>Telepon Vendor</th>
             </tr> 
         </thead> 
@@ -51,7 +52,8 @@
                     <td>{{ $penerimaanstok->quantityorder}}</td> 
                     <td>{{ $penerimaanstok->hargaorder}}</td> 
                     <td>{{ $penerimaanstok->statusreceivestok}}</td>
-                    <td>{{ $penerimaanstok->satuanbarang}}</td>
+                    <td>{{ $penerimaanstok->statusapproval}}</td>
+                    <td>{{ $penerimaanstok->tanggalorder}}</td>
                     <td>{{ $penerimaanstok->telepon}}</td>
                 </tr> 
                 @php $totalHarga += $penerimaanstok->hargaorder; @endphp

@@ -4,6 +4,7 @@ namespace App\Filament\Resources\PenerimaanstokResource\Pages;
 
 use App\Filament\Resources\PenerimaanstokResource;
 use App\Filament\Resources\VendorResource;
+use App\Filament\Resources\OrderResource;
 use App\Filament\Resources\BarangResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
@@ -32,16 +33,19 @@ class ListPenerimaanstoks extends ListRecords
      $data = PenerimaanStok::select(
         'penerimaanstoks.id',
         'penerimaanstoks.tanggalreceivestok',
-        'penerimaanstoks.namabarang',
+        'barangs.namabarang',
         'penerimaanstoks.namavendor',
         'penerimaanstoks.quantityorder',
         'penerimaanstoks.hargaorder',
         'penerimaanstoks.statusreceivestok',
-        'barangs.satuanbarang',
-        'vendors.telepon'
+        'penerimaanstoks.tanggalorder',
+        'orders.statusapproval',
+        'vendors.telepon',
+
     )
-    ->join('barangs', 'penerimaanstoks.namabarang', '=', 'barangs.namabarang')
+    ->join('orders', 'penerimaanstoks.statusapproval', '=', 'orders.statusapproval')
     ->join('vendors', 'penerimaanstoks.namavendor', '=', 'vendors.namavendor')
+    ->join('barangs', 'penerimaanstoks.namabarang', '=', 'barangs.namabarang')
     ->get();
 
         $pdf = \PDF::loadView('laporan.cetakpenerimaanstok', ['data' => $data]);  

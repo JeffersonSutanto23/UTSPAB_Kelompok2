@@ -5,11 +5,13 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PenerimaanstokResource\Pages;
 use App\Filament\Resources\PenerimaanstokResource\RelationManagers;
 use App\Models\Penerimaanstok;
-use App\Models\Barang;
+use App\Models\Order;
 use App\Models\Vendor;
+use App\Models\Barang;
 use App\Imports\PenerimaanstokImport; 
+use App\Imports\OrderImport; 
+use App\Imports\VendorImport;
 use App\Imports\BarangImport; 
-use App\Imports\VendorImport; 
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -61,7 +63,16 @@ class PenerimaanstokResource extends Resource
             Forms\Components\TextInput::make('statusreceivestok')
                 ->label('Status Penerimaan Stok')
                 ->required()
-                ->maxLength(50),
+                ->maxLength(100),
+            Forms\Components\Select::make('statusapproval')
+                ->options([
+                    'Diapprove Manager' => 'Diapprove Manager',
+                    'Pending' => 'Pending',
+                    'Dilihat oleh Manager' => 'Dilihat oleh Manager',
+                    'Manager sedang sibuk' => 'Manager sedang sibuk',
+                ])
+                ->searchable()
+                ->native(false),
             ]);
     }
 

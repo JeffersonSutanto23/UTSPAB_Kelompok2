@@ -17,9 +17,9 @@ class orderSeeder extends Seeder
         $order = new order;
         $order->id = 1;  
         $order->nama = "Dennis";    
-        $order->namabarang = "Buku Akuntansi";  
-        $order->quantityorder = 1;  
-        $order->hargaorder = '100.000';           
+        $order->namabarang = "Penghapus";  
+        $order->quantityorder = 3;  
+        $order->hargaorder = '15000';           
         $order->tanggalorder = "2024-09-11";
         $order->statusapproval = "Diapprove Manager";   
         $order->save();
