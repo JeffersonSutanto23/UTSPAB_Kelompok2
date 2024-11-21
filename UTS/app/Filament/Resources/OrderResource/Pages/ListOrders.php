@@ -7,6 +7,7 @@ use App\Filament\Resources\AdminResource;
 use App\Filament\Resources\BarangResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use App\Models\Order;
 
 class ListOrders extends ListRecords
 {
@@ -26,7 +27,21 @@ class ListOrders extends ListRecords
     }
     public static function cetakLaporan() 
     {  
-        $data = \App\Models\order::all(); 
+        $data = Order::select(
+            'orders.id',
+            'orders.nama',
+            'orders.namabarang',
+            'orders.quantityorder',
+            'orders.hargaorder',
+            'orders.tanggalorder',
+            'orders.statusapproval',
+            'barangs.satuanbarang',
+            'penerimaanstoks.tanggalreceivestok',
+            'penerimaanstoks.statusreceivestok'
+        )
+        ->join('barangs', 'orders.namabarang', '=', 'barangs.namabarang')
+        ->join('penerimaanstoks', 'orders.namabarang', '=', 'penerimaanstoks.namabarang')
+        ->get();
         $pdf = \PDF::loadView('laporan.cetakorder', ['data' => $data]);  
         return response()->streamDownload(fn() => print($pdf->output()), 'laporanorder.pdf'); 
     }

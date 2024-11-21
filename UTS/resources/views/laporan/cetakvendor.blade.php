@@ -12,6 +12,9 @@
         .header { margin-bottom: 20px; }
         .header p { margin: 0; }
         .header .bold { font-weight: bold; }
+        .footer { margin-bottom: 20px; text-align: center; margin-top: 20px;}
+        .footer p { margin: 0; }
+        .footer .bold { font-weight: bold; }
     </style> 
 </head> 
 
@@ -30,6 +33,11 @@
                 <th>Nama Vendor</th> 
                 <th>Alamat Vendor</th>
                 <th>No Telepon Vendor</th>
+                <th>Tanggal Receive Stok</th> 
+                <th>Nama Barang</th>
+                <th>Quantity Order</th> 
+                <th>Status Receive Stok</th>
+                <th>Satuan Barang</th> 
             </tr> 
         </thead> 
         <tbody> 
@@ -38,10 +46,19 @@
                     <td>{{ $vendor->id }}</td> 
                     <td>{{ $vendor->namavendor}}</td> 
                     <td>{{ $vendor->alamat}}</td> 
-                    <td>{{ $vendor->telepon}}</td> 
+                    <td>{{ $vendor->telepon}}</td>
+                    <td>{{ $vendor->namabarang}}</td>
+                    <td>{{ $vendor->tanggalreceivestok}}</td> 
+                    <td>{{ $vendor->quantityorder}}</td> 
+                    <td>{{ $vendor->statusreceivestok}}</td>
+                    <td>{{ $vendor->satuanbarang}}</td>   
                 </tr> 
             @endforeach 
         </tbody> 
     </table> 
+    <div class="footer">
+        <p class="bold">PT. Indako Trading Coy</p>
+        <p><span class="bold">Periode:</span> 2023-2024</p>
+    </div>
 </body> 
 </html>

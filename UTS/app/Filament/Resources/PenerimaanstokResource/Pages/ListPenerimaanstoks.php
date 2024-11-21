@@ -7,6 +7,7 @@ use App\Filament\Resources\VendorResource;
 use App\Filament\Resources\BarangResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use App\Models\PenerimaanStok;
 
 class ListPenerimaanstoks extends ListRecords
 {
@@ -26,7 +27,23 @@ class ListPenerimaanstoks extends ListRecords
     }
     public static function cetakLaporan() 
     {  
-        $data = \App\Models\penerimaanstok::all();
+        
+
+     $data = PenerimaanStok::select(
+        'penerimaanstoks.id',
+        'penerimaanstoks.tanggalreceivestok',
+        'penerimaanstoks.namabarang',
+        'penerimaanstoks.namavendor',
+        'penerimaanstoks.quantityorder',
+        'penerimaanstoks.hargaorder',
+        'penerimaanstoks.statusreceivestok',
+        'barangs.satuanbarang',
+        'vendors.telepon'
+    )
+    ->join('barangs', 'penerimaanstoks.namabarang', '=', 'barangs.namabarang')
+    ->join('vendors', 'penerimaanstoks.namavendor', '=', 'vendors.namavendor')
+    ->get();
+
         $pdf = \PDF::loadView('laporan.cetakpenerimaanstok', ['data' => $data]);  
         return response()->streamDownload(fn() => print($pdf->output()), 'laporanpenerimaanstok.pdf'); 
     }

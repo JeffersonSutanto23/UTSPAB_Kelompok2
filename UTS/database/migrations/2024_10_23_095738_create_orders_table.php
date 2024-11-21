@@ -16,8 +16,9 @@ return new class extends Migration
             $table->char('nama', 100);
             $table->char('namabarang', length: 100);
             $table->integer('quantityorder');
-            $table->char('hargaorder', length: 30);
-            $table->char('tanggalorder', length : 100);
+            $table->double('hargaorder');
+            $table->DateTime('tanggalorder');
+            $table->char('statusapproval', length: 100);
             $table->timestamps();
             $table->foreign('nama')->references('nama')->on('admins');
             $table->foreign('namabarang')->references('namabarang')->on('barangs');

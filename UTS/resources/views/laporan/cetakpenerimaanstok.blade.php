@@ -12,6 +12,9 @@
         .header { margin-bottom: 20px; }
         .header p { margin: 0; }
         .header .bold { font-weight: bold; }
+        .footer { margin-bottom: 20px; text-align: center; margin-top: 20px;}
+        .footer p { margin: 0; }
+        .footer .bold { font-weight: bold; }
     </style> 
 </head> 
 
@@ -33,9 +36,12 @@
                 <th>Quantity Order</th> 
                 <th>Harga Order</th>
                 <th>Status Receive Stok</th>
+                <th>Satuan Barang</th>
+                <th>Telepon Vendor</th>
             </tr> 
         </thead> 
         <tbody> 
+            @php $totalHarga = 0; @endphp
             @foreach($data as $penerimaanstok) 
                 <tr> 
                     <td>{{ $penerimaanstok->id }}</td> 
@@ -45,9 +51,19 @@
                     <td>{{ $penerimaanstok->quantityorder}}</td> 
                     <td>{{ $penerimaanstok->hargaorder}}</td> 
                     <td>{{ $penerimaanstok->statusreceivestok}}</td>
+                    <td>{{ $penerimaanstok->satuanbarang}}</td>
+                    <td>{{ $penerimaanstok->telepon}}</td>
                 </tr> 
+                @php $totalHarga += $penerimaanstok->hargaorder; @endphp
             @endforeach 
         </tbody> 
-    </table> 
+    </table>
+    <p class="total">Total Harga Order: {{ number_format($totalHarga, 0, ',', '.') }}</p> 
+
+    <div class="footer">
+        <p class="bold">PT. Indako Trading Coy</p>
+        <p><span class="bold">Periode:</span> 2023-2024</p>
+    </div>
+
 </body> 
 </html>

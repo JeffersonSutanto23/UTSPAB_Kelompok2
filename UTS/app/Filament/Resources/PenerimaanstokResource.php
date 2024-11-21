@@ -36,10 +36,12 @@ class PenerimaanstokResource extends Resource
     {
         return $form
             ->schema([
-            Forms\Components\TextInput::make('tanggalreceivestok')
-                ->label('Tanggal Receive Stok')
-                ->required()
-                ->maxLength(100),
+            Forms\Components\DateTimePicker::make('tanggalreceivestok')
+                ->label('Tanggal Stok Sampai')
+                ->required() 
+                ->format('Y-m-d') 
+                ->placeholder('Pilih tanggal Peminjaman') 
+                ->columnSpan(1),
             Forms\Components\TextInput::make('namavendor')
                 ->label('Masukkan nama vendor')
                 ->required()
@@ -59,7 +61,7 @@ class PenerimaanstokResource extends Resource
             Forms\Components\TextInput::make('statusreceivestok')
                 ->label('Status Penerimaan Stok')
                 ->required()
-                ->maxLength(20),
+                ->maxLength(50),
             ]);
     }
 

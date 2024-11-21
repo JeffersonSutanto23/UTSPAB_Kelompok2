@@ -52,10 +52,21 @@ class OrderResource extends Resource
                 ->label('Harga Order')
                 ->required()
                 ->maxLength(30),
-            Forms\Components\TextInput::make('tanggalorder')
+            Forms\Components\DateTimePicker::make('tanggalorder')
                 ->label('Tanggal Order')
-                ->required()
-                ->maxLength(100),
+                ->required() 
+                ->format('Y-m-d') 
+                ->placeholder('Pilih tanggal Order') 
+                ->columnSpan(1),
+            Forms\Components\Select::make('statusapproval')
+                ->options([
+                    'Diapprove Manager' => 'Diapprove Manager',
+                    'Pending' => 'Pending',
+                    'Dilihat oleh Manager' => 'Dilihat oleh Manager',
+                    'Manager sedang sibuk' => 'Manager sedang sibuk',
+                ])
+                ->searchable()
+                ->native(false),
             ]);
     }
 
@@ -68,6 +79,7 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('quantityorder')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('hargaorder')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('tanggalorder')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('statusapproval')->sortable()->searchable(),
             ])
             ->filters([
                 //

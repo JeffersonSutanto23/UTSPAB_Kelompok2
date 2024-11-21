@@ -16,7 +16,9 @@ return new class extends Migration
             $table->char('namavendor', length: 30);
             $table->char('telepon', length: 30);
             $table->text('alamat');
+            $table->char('namabarang', 100);
             $table->timestamps();
+            $table->foreign('namabarang')->references('namabarang')->on('barangs');
             $table->unique('namavendor');
         });
     }

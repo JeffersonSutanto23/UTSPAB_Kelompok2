@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\VendorResource\Pages;
 use App\Filament\Resources\VendorResource\RelationManagers;
 use App\Models\Vendor;
+use App\Models\Barang;
 use App\Imports\VendorImport; 
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -44,6 +45,10 @@ class VendorResource extends Resource
                 ->label('Masukkan alamat vendor')
                 ->required()
                 ->maxLength(100),
+            Forms\Components\TextInput::make('namabarang')
+                ->label('Masukkan nama barang')
+                ->required()
+                ->maxLength(100),
             ]);
     }
 
@@ -54,6 +59,7 @@ class VendorResource extends Resource
                 Tables\Columns\TextColumn::make('namavendor')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('telepon')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('alamat')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('namabarang')->sortable()->searchable(),
             ])
             ->filters([
                 //

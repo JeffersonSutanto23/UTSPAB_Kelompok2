@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('penerimaanstoks', function (Blueprint $table) {
             $table->id();
-            $table->char('tanggalreceivestok', length: 100);
+            $table->DateTime('tanggalreceivestok');
             $table->char('namavendor', length: 30);
             $table->char('namabarang', length: 100);
             $table->integer('quantityorder');         
-            $table->char('hargaorder', length: 30);
+            $table->double('hargaorder');
             $table->char('statusreceivestok', length: 100);
             $table->timestamps();
             $table->foreign('namabarang')->references('namabarang')->on('barangs');
